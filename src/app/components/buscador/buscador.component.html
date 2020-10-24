@@ -1,0 +1,19 @@
+<div class="animated fadeIn">
+  <h2>Resultados para <small>{{str}}</small></h2>
+  <div *ngIf="(resultados == 0)" class="alert alert-primary" role="alert">
+    No se encontró ningun resultado para <b>{{str}}</b>
+  </div>
+  <div *ngIf="(resultados != 0)" class="card-columns">
+    <div class="card fadeIn fast" *ngFor="let hero of resultados; let i = index">
+      
+        <img src="{{hero.img}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{hero.nombre}}</h5>
+          <p class="card-text">{{hero.bio.substring(0,100)}}</p>
+        </div>
+        <!-- En este routerlink añadimos un segundo parámetro a la ruta, en este caso el index -->
+        <!-- <button (click)="Navegar(i)" class="btn btn-outline-success btn-block" [routerLink]="['hero']">Ver más</button> -->
+      </div>
+    </div>
+  </div>
+    
