@@ -4,16 +4,11 @@
     No se encontró ningun resultado para <b>{{str}}</b>
   </div>
   <div *ngIf="(resultados != 0)" class="card-columns">
-    <div class="card fadeIn fast" *ngFor="let hero of resultados; let i = index">
-      
-        <img src="{{hero.img}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{hero.nombre}}</h5>
-          <p class="card-text">{{hero.bio.substring(0,100)}}</p>
-        </div>
-        <!-- En este routerlink añadimos un segundo parámetro a la ruta, en este caso el index -->
-        <!-- <button (click)="Navegar(i)" class="btn btn-outline-success btn-block" [routerLink]="['hero']">Ver más</button> -->
-      </div>
+    <app-hero-card [PadreHero]="hero" [index]="hero.index" *ngFor="let hero of resultados; let i = index"></app-hero-card>
+
     </div>
   </div>
+  <!-- *ngFor="let hero of resultados; let i = index" -->
+   <!-- En este routerlink añadimos un segundo parámetro a la ruta, en este caso el index -->
+  <!-- <button (click)="Navegar(i)" class="btn btn-outline-success btn-block" [routerLink]="['hero']">Ver más</button> -->
     

@@ -1,18 +1,12 @@
+<!-- Heroes component es padre de hero-card component -->
+
 <div class="animated fadeIn">
   
   <h2 class="display-4">Heroes <small>DC Y MARVEL</small></h2>
+  <!-- *ngFor="let hero of ArrayHeros; let i = index -->
   <div class="card-columns">
-      <div class="card fadeIn fast" [ngClass]="{'border-primary': hero.casa == 'DC', 'border-danger': hero.casa == 'Marvel'}" *ngFor="let hero of ArrayHeros; let i = index">
-          <img src="{{hero.img}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{hero.nombre}}</h5>
-            <p class="card-text">{{hero.bio.substring(0,100)}}</p>
-            <p class="card-text">Casa: {{hero.casa}}</p>
-            <small>Aparicion: {{hero.aparicion}}</small>
-          </div>
-          <!-- En este routerlink añadimos un segundo parámetro a la ruta, en este caso el index -->
-          <button (click)="Navegar(i)" class="btn btn-outline-success btn-block" [routerLink]="['/hero',i]">Ver más</button>
-      </div>
+    <!-- Componente hijo de heros component -->
+    <app-hero-card [PadreHero]="hero" [index]="i" *ngFor="let hero of ArrayHeros; let i = index"></app-hero-card>
   </div>
 </div>
 

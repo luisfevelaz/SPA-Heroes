@@ -12,13 +12,15 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['heros']">Heros</a>
         </li>
-       
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['pipes']">Extra Pipes</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['about']">About</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" #valorBuscar type="search" placeholder="Search" aria-label="Search">
+      <form (submit)="$event.preventDefault()" class="form-inline my-2 my-lg-0">
+        <input (keyup.enter)="Search(valorBuscar.value)" class="form-control mr-sm-2" #valorBuscar placeholder="Search">
         <button (click)="Search(valorBuscar.value)" class="btn btn-success my-2 my-sm-0" type="button">Search</button>
       </form>
     </div>
