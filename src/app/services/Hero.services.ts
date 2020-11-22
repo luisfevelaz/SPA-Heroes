@@ -71,7 +71,7 @@ export class HeroService {
     }
 
     public searchHeros(termino){
-      console.log(termino);
+      //console.log(termino);
       // declarar un array para almacenar todos los resultados
       let resultados: any = [];
       termino = termino.toLowerCase();

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, AfterContentInit,AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
 import { HeroService } from 'src/app/services/hero.services';
 import { Router } from '@angular/router';
 
@@ -8,9 +8,34 @@ import { Router } from '@angular/router';
   templateUrl: './heros.component.html',
   styleUrls: ['./heros.component.css']
 })
-export class HerosComponent implements OnInit {
+export class HerosComponent implements OnInit, OnChanges, AfterContentInit,AfterContentChecked,AfterViewInit, AfterViewChecked, OnDestroy {
 
   constructor(private _heroService:HeroService, private _aRouter: Router) {
+    //console.log("Constructor de heros");
+    
+  }
+  ngOnDestroy(){
+    console.log("OnDestroy");
+    
+  }
+  ngAfterViewChecked(){
+    console.log("AfterViewChecked");
+    
+  }
+  ngAfterViewInit(){
+    console.log("AfterViewInit");
+    
+  }
+  ngAfterContentChecked(){
+    console.log("AfterContentChecked")
+  }
+  ngAfterContentInit(){
+    console.log("AfterContentInit");
+    
+  }
+
+  ngOnChanges(){
+    console.log("Evento ngOnChanges");
     
   }
 
@@ -22,7 +47,7 @@ export class HerosComponent implements OnInit {
   }
 
   Navegar(index) {
-    console.log(index);
+    //console.log(index);
     this._aRouter.navigate(['/hero',index]);
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, AfterContentInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styles: [
   ]
 })
-export class HeroCardComponent implements OnInit {
+export class HeroCardComponent implements OnInit, OnChanges, DoCheck, AfterContentInit {
  
 
   //Recibir informacion de un componente padre
@@ -19,8 +19,23 @@ export class HeroCardComponent implements OnInit {
 
   constructor(private _aRouter:Router) {
     //console.log(this.PadreHero);
+    console.log("Constrctor hero card");
+    
     this.selectedHero = new EventEmitter();
    }
+  ngAfterContentInit(){
+    console.log("AfterCard");
+    
+  }
+
+  ngDoCheck(){
+    console.log("Evento DoCheck");
+    
+  }
+  ngOnChanges(){
+    console.log("Onchanges");
+    
+  }
 
   ngOnInit(): void {
   }
