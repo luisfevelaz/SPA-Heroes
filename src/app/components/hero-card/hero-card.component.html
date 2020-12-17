@@ -9,5 +9,7 @@
     <!-- En este routerlink añadimos un segundo parámetro a la ruta, en este caso el index -->
     <!-- (click)="Navegar(i)" -->
     <!-- [routerLink]="['/hero',i]" -->
-    <button (click)="Navegar()" class="btn btn-outline-success btn-block">Ver más</button>
+    <button (click)="Navegar()" class="btn btn-outline-success btn-block" *ngIf="PadreHero.activo">Ver más</button>
+    <button (click)="Eliminar()" class="btn btn-outline-danger btn-block" *ngIf="PadreHero.activo">Eliminar</button>
+    <button class="btn btn-danger btn-block disabled" *ngIf="!PadreHero.activo">No disponible</button>
 </div>

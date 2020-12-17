@@ -8,6 +8,9 @@ import { HomeComponent } from './components/home/home.component';
 import { HerosComponent } from './components/heros/heros.component';
 import { AboutComponent } from './components/about/about.component';
 
+// Peticiones HTTP
+import { HttpClientModule } from '@angular/common/http';
+
 //rutas
 import { RouterModule } from '@angular/router';
 import { Error404Component } from './components/error404/error404.component';
@@ -38,6 +41,7 @@ import { PasswordPipe } from './pipes/password/password.pipe';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: 'home', component:HomeComponent},
       {path: '', component:HomeComponent},

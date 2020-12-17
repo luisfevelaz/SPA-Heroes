@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, AfterContentInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NodeServiceService } from 'src/app/services/node-service.service';
 
 @Component({
   selector: 'app-hero-card',
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
   styles: [
   ]
 })
-export class HeroCardComponent implements OnInit, OnChanges, DoCheck, AfterContentInit {
+export class HeroCardComponent implements OnInit/*, OnChanges, DoCheck, AfterContentInit*/ {
  
 
   //Recibir informacion de un componente padre
@@ -17,13 +18,13 @@ export class HeroCardComponent implements OnInit, OnChanges, DoCheck, AfterConte
   // Mandar información del hijo al padre
   @Output() selectedHero: EventEmitter<number>;
 
-  constructor(private _aRouter:Router) {
+  constructor(private _aRouter:Router, private node:NodeServiceService) {
     //console.log(this.PadreHero);
     console.log("Constrctor hero card");
     
     this.selectedHero = new EventEmitter();
    }
-  ngAfterContentInit(){
+  /*ngAfterContentInit(){
     console.log("AfterCard");
     
   }
@@ -35,13 +36,21 @@ export class HeroCardComponent implements OnInit, OnChanges, DoCheck, AfterConte
   ngOnChanges(){
     console.log("Onchanges");
     
-  }
+  }*/
 
   ngOnInit(): void {
   }
 
   Navegar(){
   this._aRouter.navigate(['/hero',this.index]);
+  }
+
+  Eliminar(){
+    this.node.deleteByID(this.index).subscribe((data:any) => {
+      console.log(data);
+      
+    });
+    
   }
 
 }

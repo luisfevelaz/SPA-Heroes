@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { HeroService } from 'src/app/services/hero.services';
+import { NodeServiceService } from 'src/app/services/node-service.service';
 
 @Component({
   selector: 'app-buscador',
@@ -9,7 +10,7 @@ import { HeroService } from 'src/app/services/hero.services';
 })
 export class BuscadorComponent implements OnInit {
 
-  constructor(private _aRoute: ActivatedRoute, private _heroService: HeroService) { }
+  constructor(private _aRoute: ActivatedRoute, private _heroService: HeroService, private node:NodeServiceService) { }
 
   resultados: any = [];
 
@@ -20,8 +21,13 @@ export class BuscadorComponent implements OnInit {
     this._aRoute.params.subscribe(params =>{
       console.log(params['termino']);
       this.str = params['termino'];
-      this.resultados = this._heroService.searchHeros(params['termino']);
-      console.log(this.resultados);
+      //this.resultados = this._heroService.searchHeros(params['termino']);
+      //console.log(this.resultados);
+      this.node.getByTerm(params['termino']).subscribe((data:any) => {
+        
+        this.resultados = data;
+  
+      });
       
     });
   }
