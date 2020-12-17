@@ -11,7 +11,7 @@ export class NodeServiceService {
   constructor(private http:HttpClient) { }
 
   getAll(){
-    return this.http.get(`${this.url}heroes`);
+    return this.http.get(`${this.url}heroesAct`);
   }
 
   getByID(id){

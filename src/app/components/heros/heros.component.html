@@ -6,7 +6,7 @@
   <!-- *ngFor="let hero of ArrayHeros; let i = index -->
   <div class="card-columns">
     <!-- Componente hijo de heros component -->
-    <app-hero-card [PadreHero]="hero" [index]="i" *ngFor="let hero of ArrayHeros; let i = index"></app-hero-card>
+    <app-hero-card [PadreHero]="hero" [index]="hero._id" *ngFor="let hero of ArrayHeros; let i = index"></app-hero-card>
   </div>
 </div>
 

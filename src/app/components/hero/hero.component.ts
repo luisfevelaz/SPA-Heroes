@@ -21,11 +21,12 @@ export class HeroComponent implements OnInit {
       //this.hero = this._heroService.getHero(params['id']);
       this.node.getByID(params['id']).subscribe((data:any) =>{
         this.hero = data;
+        
         if(this.hero.casa == 'Marvel'){
           this.flag = false;
         }
       });
-      //console.log(this.hero);
+      
     })
 
   }

@@ -42,12 +42,13 @@ export class HeroCardComponent implements OnInit/*, OnChanges, DoCheck, AfterCon
   }
 
   Navegar(){
-  this._aRouter.navigate(['/hero',this.index]);
+    this._aRouter.navigate(['/hero',this.index]);
   }
 
   Eliminar(){
     this.node.deleteByID(this.index).subscribe((data:any) => {
       console.log(data);
+      window.location.reload(); 
       
     });
     
